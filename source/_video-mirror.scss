@@ -1,0 +1,47 @@
+video {
+  display: none;
+}
+
+
+.video-mirror-container {
+  @include centered;
+  width: 75%;
+
+  border: 0 none;
+  padding: 0 0 1.4rem 1.4rem;
+  background: pink;
+  position: relative;
+  color: #000;
+  font-size: 1rem;
+  /* fallback cube effect for when clip-path isn't available */
+  background-image: linear-gradient(
+    -45deg,
+    midnightblue .98rem,
+    transparent 1rem
+  ),linear-gradient(
+    135deg,
+    midnightblue .98rem,
+    transparent 1rem
+  );
+  
+  @media screen and ($large-only) {
+    // magic number that seems to always mean that the button is visible on both ipad and desktop
+    max-width: 625px;
+  }
+}
+
+/* more modern way to do cube effect */
+@supports(-webkit-clip-path: polygon(0 0, 100% 0, 0 100%)) or (clip-path: polygon(0 0, 100% 0, 0 100%)) {
+  .video-mirror-container {
+    background-image: none;
+    -webkit-clip-path: polygon(1.4rem 0, 100% 0, 100% calc(100% - 1.4rem), calc(100% - 1.4rem) 100%, 0 100%, 0 1.4rem);    
+    clip-path: polygon(1.4rem 0, 100% 0, 100% calc(100% - 1.4rem), calc(100% - 1.4rem) 100%, 0 100%, 0 1.4rem);
+  }
+}
+
+.video-mirror {
+  background: #fff;
+  padding: $space;
+  border: 1px solid deeppink;
+  width: 100%;
+}

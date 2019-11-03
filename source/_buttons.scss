@@ -1,0 +1,26 @@
+
+/*  BUTTON STYLING */
+.btn {  
+  display: inline-block;
+  height: $form-height;
+  padding-right: $space;
+  padding-left: $space;
+  background: deeppink;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: mediumvioletred;
+  color: white;
+}
+.btn:disabled {
+  background: gray;
+}

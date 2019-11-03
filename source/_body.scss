@@ -1,0 +1,81 @@
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-color {
+  0% {
+    background: midnightblue;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background: midnightblue;
+  }
+}
+
+body {
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 16px;
+  background: linear-gradient(to bottom, indigo, midnightblue);
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/*  Flash white when photo is in progress */
+body.pose {
+  animation: pulse-color 1s infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+
+}
+body.error {
+  background-color: deeppink;
+}
+body.pose #statustext,
+body.ready #statustext {
+  animation: pulse 1s infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.status-text {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-top: $space;
+  margin-bottom: $space;
+  color: deeppink;
+  font-size: 30px;
+}
+
+main {
+  margin-bottom: 2rem;
+}
+
+main a,
+footer a {
+  font-weight: bold;
+  color: white;
+}
+
+footer {
+  padding: 1rem;
+}
+
+.sms-status-header {
+  margin-bottom: 6rem;
+  margin-top: 4rem;
+  font-size: 3rem;
+}
+

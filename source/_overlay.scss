@@ -1,0 +1,76 @@
+$ipad-max-width: 60%;
+
+
+.preview-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  background: rgba(0, 0, 0, 0.70);
+}
+
+.preview-wrapper.active {
+  display: block;
+}
+
+.links {
+  vertical-align: top;
+  // text-align: left;
+  
+  @media screen and ($up-to-large) {
+    width: $ipad-max-width;  
+    @include centered;
+  }
+  
+  @media screen and ($large-only) {
+    display: inline-block;
+    margin-left: $space * 2;
+  } 
+}
+
+.preview {
+  max-height: calc(100% - 100px);
+  
+  @media screen and ($up-to-large) {
+    width: $ipad-max-width;  
+    
+  }
+}
+
+// hide the download button for Appy Hour
+.preview-download-btn {
+  display: none;
+}
+
+.send-gif_container {
+  margin-bottom: $space;
+  
+  @media screen and ($large-only) {
+      margin-bottom: 200px;
+  } 
+}
+.send-gif_header {
+  font-size: 2rem;
+}
+.send-gif_input {
+  border: none;
+  outline: none;
+  display: inline-block;
+  height: $form-height;
+  padding: $space / 2;
+  font-size: 20px;
+  
+  @media screen and ($up-to-large) {
+    max-width: $ipad-max-width;
+    width: 100%;
+  }
+  
+}
+
+.send-gif_social-text {
+  font-size: 1.5rem;
+  margin-bottom: $space * 2;
+}

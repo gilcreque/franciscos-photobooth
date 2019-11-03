@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GIF Photobooth</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/gif.js@0.2.0/dist/gif.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body data-csrf="<!-- CSRF -->">
+    <header>
+      <p class="header-intro">✨ Francisco Creque Presents ✨</p>
+      <h1><span>Birthday GIF Booth</span></h1>
+    </header>
+
+    <main>
+      <p id="statustext" class="status-text">Warming up...</p>
+
+      <video autoplay="autoplay" id="video"></video>
+
+      <div class="video-mirror-container mar-bottom">
+        <canvas id="videomirror" class="video-mirror"></canvas>
+      </div>
+
+      <button id="shutter" class="btn shutter-button">📸 Take photo! 📸</button>
+
+      <!--   Overlay once gifs are ready   -->
+      <div id="preview-wrapper" class="preview-wrapper">
+        <img id="preview" class="preview" />
+        <div class="links">
+          <!-- <div class="send-gif_container">
+            <h3 class="send-gif_header">Send your gif!</h3>
+            <input
+              id="phone-number"
+              placeholder="enter your number"
+              type="tel"
+              class="send-gif_input"
+            />
+            <button
+              href="#"
+              id="uploadLink"
+              class="btn preview-upload-btn"
+              disabled
+            >
+              📱
+            </button>
+            <p class="mar-bottom">
+              * We do not store your image or phone number.
+            </p>
+            <p class="send-gif_social-text ">
+              Tag us <strong>@glitch</strong> on Twitter! <br /><strong
+                >#appyhour</strong
+              >
+              <strong>#xoxofest</strong>
+            </p>
+          </div> -->
+
+          <button href="#" id="closelink" class="btn preview-close-btn">
+            ✨ Start over ✨
+          </button>
+          <!-- <a href="#" id="downloadlink" class="preview-download-btn"
+            >Download</a
+          > -->
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Built by Francisco's awesome Dad who loves him very much!
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

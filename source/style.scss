@@ -1,0 +1,32 @@
+// breakpoints
+$small-only:      "max-width: 767px";
+$small-up:        "min-width: 768px";
+$up-to-large:     "max-width: 991px";
+$large-only:      "min-width: 992px";
+
+$form-height: 60px;
+
+$space: 1.25rem;
+
+* {
+  box-sizing:border-box;
+}
+
+.mar-bottom {
+  margin-bottom: 2rem;
+}
+
+@mixin centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@import "_body";
+@import "_buttons";
+@import "_header";
+@import "_overlay";
+@import "_video-mirror";
+
+  
+  
+  
