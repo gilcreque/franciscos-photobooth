@@ -1,34 +1,24 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .mar-bottom {
-  margin-bottom: 2rem;
-}
+  margin-bottom: 2rem; }
 
 @keyframes pulse {
   0% {
-    opacity: 0.5;
-  }
+    opacity: 0.5; }
   50% {
-    opacity: 1;
-  }
+    opacity: 1.0; }
   100% {
-    opacity: 0.5;
-  }
-}
+    opacity: 0.5; } }
 
 @keyframes pulse-color {
   0% {
-    background: midnightblue;
-  }
+    background: midnightblue; }
   50% {
-    background-color: white;
-  }
+    background-color: white; }
   100% {
-    background: midnightblue;
-  }
-}
+    background: midnightblue; } }
 
 body {
   font-family: "Helvetica Neue", helvetica, arial, sans-serif;
@@ -38,24 +28,20 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-}
+  min-height: 100vh; }
 
 /*  Flash white when photo is in progress */
 body.pose {
   animation: pulse-color 1s infinite;
-  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 body.error {
-  background-color: deeppink;
-}
+  background-color: deeppink; }
 
 body.pose #statustext,
 body.ready #statustext {
   animation: pulse 1s infinite;
-  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1); }
 
 .status-text {
   display: block;
@@ -64,28 +50,23 @@ body.ready #statustext {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   color: deeppink;
-  font-size: 64px;
-}
+  font-size: 30px; }
 
 main {
-  margin-bottom: 2rem;
-}
+  margin-bottom: 2rem; }
 
 main a,
 footer a {
   font-weight: bold;
-  color: white;
-}
+  color: white; }
 
 footer {
-  padding: 1rem;
-}
+  padding: 1rem; }
 
 .sms-status-header {
   margin-bottom: 6rem;
   margin-top: 4rem;
-  font-size: 3rem;
-}
+  font-size: 3rem; }
 
 /*  BUTTON STYLING */
 .btn {
@@ -100,47 +81,37 @@ footer {
   text-decoration: none;
   border: none;
   outline: none;
-  text-align: center;
-}
+  text-align: center; }
 
 .btn:hover,
 .btn:focus,
 .btn:active {
   background: mediumvioletred;
-  color: white;
-}
+  color: white; }
 
 .btn:disabled {
-  background: gray;
-}
+  background: gray; }
 
 /* page header */
 header {
-  padding: 1rem 0;
-}
+  padding: 1rem 0; }
 
 header h1 {
   position: relative;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: deeppink;
   font-size: 4.5rem;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: -1px 1px 0 pink, -2px 2px 0 pink, -3px 3px 0 pink,
-    -4px 4px 0 pink, -5px 5px 0 pink, -6px 6px 0 pink, -7px 7px 0 pink,
-    -8px 8px 0 pink, -9px 9px 0 pink, -10px 10px 0 pink, -11px 11px 0 pink,
-    -12px 12px 0 pink, -13px 13px 0 pink, -14px 14px 0 pink,
-    -4px 1rem 1em deeppink, -4px 1rem 2em deeppink;
-}
+  text-shadow: -1px 1px 0 pink, -2px 2px 0 pink, -3px 3px 0 pink, -4px 4px 0 pink, -5px 5px 0 pink, -6px 6px 0 pink, -7px 7px 0 pink, -8px 8px 0 pink, -9px 9px 0 pink, -10px 10px 0 pink, -11px 11px 0 pink, -12px 12px 0 pink, -13px 13px 0 pink, -14px 14px 0 pink, -4px 1rem 1em deeppink, -4px 1rem 2em deeppink; }
 
 header h1 span {
   text-stroke: 1px white;
   -webkit-text-stroke: 1px white;
   color: inherit;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .header-intro {
   margin-top: 0;
@@ -148,8 +119,7 @@ header h1 span {
   font-size: 2rem;
   font-style: italic;
   font-family: cursive;
-  color: pink;
-}
+  color: pink; }
 
 .preview-wrapper {
   display: none;
@@ -159,55 +129,40 @@ header h1 span {
   width: 100%;
   height: 100%;
   padding-top: 50px;
-  background: rgba(0, 0, 0, 0.7);
-}
+  background: rgba(0, 0, 0, 0.7); }
 
 .preview-wrapper.active {
-  display: block;
-}
+  display: block; }
 
 .links {
-  vertical-align: top;
-}
-@media screen and (max-width: 991px) {
-  .links {
-    width: 60%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-@media screen and (min-width: 992px) {
-  .links {
-    display: inline-block;
-    margin-left: 2.5rem;
-  }
-}
+  vertical-align: top; }
+  @media screen and (max-width: 991px) {
+    .links {
+      width: 60%;
+      margin-right: auto;
+      margin-left: auto; } }
+  @media screen and (min-width: 992px) {
+    .links {
+      display: inline-block;
+      margin-left: 2.5rem; } }
 
 .preview {
-  max-height: calc(100% - 100px);
-}
-@media screen and (max-width: 991px) {
-  .preview {
-    width: 60%;
-  }
-}
+  max-height: calc(100% - 100px); }
+  @media screen and (max-width: 991px) {
+    .preview {
+      width: 60%; } }
 
 .preview-download-btn {
-  display: none;
-}
+  display: none; }
 
 .send-gif_container {
-  margin-bottom: 1.25rem;
-}
-@media screen and (min-width: 992px) {
-  .send-gif_container {
-    margin-bottom: 200px;
-  }
-}
+  margin-bottom: 1.25rem; }
+  @media screen and (min-width: 992px) {
+    .send-gif_container {
+      margin-bottom: 200px; } }
 
 .send-gif_header {
-  font-size: 2rem;
-}
+  font-size: 2rem; }
 
 .send-gif_input {
   border: none;
@@ -215,23 +170,18 @@ header h1 span {
   display: inline-block;
   height: 60px;
   padding: 0.625rem;
-  font-size: 20px;
-}
-@media screen and (max-width: 991px) {
-  .send-gif_input {
-    max-width: 60%;
-    width: 100%;
-  }
-}
+  font-size: 20px; }
+  @media screen and (max-width: 991px) {
+    .send-gif_input {
+      max-width: 60%;
+      width: 100%; } }
 
 .send-gif_social-text {
   font-size: 1.5rem;
-  margin-bottom: 2.5rem;
-}
+  margin-bottom: 2.5rem; }
 
 video {
-  display: none;
-}
+  display: none; }
 
 .video-mirror-container {
   margin-right: auto;
@@ -244,46 +194,20 @@ video {
   color: #000;
   font-size: 1rem;
   /* fallback cube effect for when clip-path isn't available */
-  background-image: linear-gradient(
-      -45deg,
-      midnightblue 0.98rem,
-      transparent 1rem
-    ),
-    linear-gradient(135deg, midnightblue 0.98rem, transparent 1rem);
-}
-@media screen and (min-width: 992px) {
-  .video-mirror-container {
-    max-width: 625px;
-  }
-}
+  background-image: linear-gradient(-45deg, midnightblue 0.98rem, transparent 1rem), linear-gradient(135deg, midnightblue 0.98rem, transparent 1rem); }
+  @media screen and (min-width: 992px) {
+    .video-mirror-container {
+      max-width: 625px; } }
 
 /* more modern way to do cube effect */
-@supports (-webkit-clip-path: polygon(0 0, 100% 0, 0 100%)) or
-  (clip-path: polygon(0 0, 100% 0, 0 100%)) {
+@supports (-webkit-clip-path: polygon(0 0, 100% 0, 0 100%)) or (clip-path: polygon(0 0, 100% 0, 0 100%)) {
   .video-mirror-container {
     background-image: none;
-    -webkit-clip-path: polygon(
-      1.4rem 0,
-      100% 0,
-      100% calc(100% - 1.4rem),
-      calc(100% - 1.4rem) 100%,
-      0 100%,
-      0 1.4rem
-    );
-    clip-path: polygon(
-      1.4rem 0,
-      100% 0,
-      100% calc(100% - 1.4rem),
-      calc(100% - 1.4rem) 100%,
-      0 100%,
-      0 1.4rem
-    );
-  }
-}
+    -webkit-clip-path: polygon(1.4rem 0, 100% 0, 100% calc(100% - 1.4rem), calc(100% - 1.4rem) 100%, 0 100%, 0 1.4rem);
+    clip-path: polygon(1.4rem 0, 100% 0, 100% calc(100% - 1.4rem), calc(100% - 1.4rem) 100%, 0 100%, 0 1.4rem); } }
 
 .video-mirror {
   background: #fff;
   padding: 1.25rem;
   border: 1px solid deeppink;
-  width: 100%;
-}
+  width: 100%; }

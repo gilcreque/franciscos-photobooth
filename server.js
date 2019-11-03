@@ -8,7 +8,7 @@ const Twilio = require("twilio");
 const sassMiddleware = require("node-sass-middleware");
 
 const MAX_MEDIA_AGE = 1000 * 60 * 5;
-const mediaDir = "/tmp/franciscos-photobooth";
+const mediaDir = "/tmp";
 
 // sass needs to go before static file serving to work
 app.use(
