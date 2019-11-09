@@ -10,10 +10,8 @@ const sassMiddleware = require("node-sass-middleware");
 const AWS = require("aws-sdk");
 
 const s3 = new AWS.S3({
-  // accessKeyId: process.env.AWS_ACCESS_KEY,
-  // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  accessKeyId: "AKIAWYXVIDADOI4S544L",
-  secretAccessKey: "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"
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
 const MAX_MEDIA_AGE = 1000 * 60 * 5;
@@ -23,8 +21,7 @@ function uploadFileToS3(fileName) {
   fs.readFile(mediaDir + fileName, (err, data) => {
     if (err) throw err;
     const params = {
-      // Bucket: process.env.S3_BUCKET,
-      Bucket: "franciscosparty",
+      Bucket: process.env.S3_BUCKET,
       Key: fileName,
       Body: data,
       ACL: "public-read"
