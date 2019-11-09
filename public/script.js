@@ -163,6 +163,7 @@
     }
     var preview = document.getElementById("preview");
     gif.on("finished", function(blob) {
+      uploadMedia(blob);
       if (preview.src) {
         URL.revokeObjectURL(preview.src);
       }
@@ -343,9 +344,6 @@
   function uploadMedia(blob) {
     const token = document.body.getAttribute("data-csrf");
 
-    sendBtn.disabled = true;
-    sendBtn.innerHTML = phoneBtnWorking;
-
     fetch("/upload", {
       credentials: "same-origin",
       body: blob,
@@ -354,34 +352,9 @@
         "CSRF-Token": token,
         "content-type": "image/gif"
       }
-    })
-      .then(res => res.json())
-      .then(res => {
-        let id = res.id;
-        let phone = document.querySelector("#phone-number").value;
-        if (!phone) {
-          return;
-        }
-        return fetch("/mms", {
-          credentials: "same-origin",
-          body: JSON.stringify({
-            media: id,
-            phone
-          }),
-          method: "POST",
-          headers: {
-            "CSRF-Token": token,
-            "content-type": "application/json"
-          }
-        }).then(res => {
-          // console.log(res)
-          alert("Yay, message sent! Check your device!");
-          resetForm();
-        });
-      })
-      .catch(e => {
-        console.error(e);
-        alert("Oh no! Something went wrong. Try again.");
-      });
+    }).then(res => {
+      console.log(res);
+      resetForm();
+    });
   }
 })();

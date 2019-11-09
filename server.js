@@ -7,8 +7,37 @@ const csrf = require("csurf");
 const Twilio = require("twilio");
 const sassMiddleware = require("node-sass-middleware");
 
+const AWS = require("aws-sdk");
+
+const s3 = new AWS.S3({
+  // accessKeyId: process.env.AWS_ACCESS_KEY,
+  // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+  accessKeyId: "AKIAWYXVIDADOI4S544L",
+  secretAccessKey: "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"
+});
+
 const MAX_MEDIA_AGE = 1000 * 60 * 5;
-const mediaDir = "/tmp";
+const mediaDir = "./public/gifs/";
+
+function uploadFileToS3(fileName) {
+  fs.readFile(mediaDir + fileName, (err, data) => {
+    if (err) throw err;
+    const params = {
+      // Bucket: process.env.S3_BUCKET,
+      Bucket: "franciscosparty",
+      Key: fileName,
+      Body: data,
+      ACL: "public-read"
+    };
+    s3.upload(params, function(s3Err, data) {
+      if (s3Err) {
+        console.log(`S3 Error ${s3Err}`);
+        throw s3Err;
+      }
+      console.log(`S3 File uploaded successfully at ${data.Location}`);
+    });
+  });
+}
 
 // sass needs to go before static file serving to work
 app.use(
@@ -65,7 +94,8 @@ app.post("/upload", (req, res) => {
     const fullData = Buffer.concat(dataParts);
     // write to our media directory
     fs.writeFileSync(mediaDir + fileName, fullData);
-    console.log("upload succeeded");
+    uploadFileToS3(fileName);
+    console.log("file saved");
 
     // tell the client about it
     res.json({
@@ -101,9 +131,9 @@ async function cleanMedia() {
     fs.remove(mediaDir + file);
   });
 
-  setTimeout(function() {
-    cleanMedia().catch(e => console.warn(e));
-  }, MAX_MEDIA_AGE);
+  // setTimeout(function() {
+  //   cleanMedia().catch(e => console.warn(e));
+  // }, MAX_MEDIA_AGE);
 }
 
 // MMS code. doesn't work yet!
@@ -141,5 +171,5 @@ app.post("/mms", function(req, res) {
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
   console.log("Your app is listening on port " + listener.address().port);
-  cleanMedia().catch(e => console.warn(e));
+  // cleanMedia().catch(e => console.warn(e));
 });
