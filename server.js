@@ -14,8 +14,11 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
+var path = require("path");
+var appDir = path.dirname(require.main.filename);
+
 const MAX_MEDIA_AGE = 1000 * 60 * 5;
-const mediaDir = "./public/gifs/";
+const mediaDir = appDir + "/public/gifs/";
 
 function uploadFileToS3(fileName) {
   fs.readFile(mediaDir + fileName, (err, data) => {
